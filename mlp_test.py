@@ -14,7 +14,7 @@ import pylearn2.costs as p2cst
 import pylearn2.training_algorithms as p2alg
 import pylearn2.termination_criteria as p2tercri
 
-
+from cmap_regression.datasets import geo
 
 def main():
     n_input = 978
@@ -28,7 +28,7 @@ def main():
     Data
     '''
     # load raw complete dataset
-    X, y = p2dts.geo.build_X_y(target_gene_idx)
+    X, y = geo.build_X_y(target_gene_idx)
     # normalize
     X_ava = X.mean(axis=0); X_std = X.std(axis=0)
     X = (X - X_ava[numpy.newaxis,:]) / X_std[numpy.newaxis,:]
